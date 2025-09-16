@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 500px;
+      padding: 15px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    h1 {
+      font-size: 18px;
+      color: #333;
+      margin: 0;
+    }
+    .description {
+      font-size: 13px;
+      color: #666;
+      margin: 8px 0;
+    }
+    .button-container {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+    button {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    #extractBtn {
+      background-color: #4CAF50;
+      color: white;
+    }
+    #extractBtn:hover {
+      background-color: #45a049;
+    }
+    #copyBtn {
+      background-color: #2196F3;
+      color: white;
+    }
+    #copyBtn:hover {
+      background-color: #0b7dda;
+    }
+    #loadBtn {
+      background-color: #FF9800;
+      color: white;
+    }
+    #loadBtn:hover {
+      background-color: #e68a00;
+    }
+    button:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+    }
+    .results {
+      margin-top: 15px;
+      max-height: 200px;
+      overflow-y: auto;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 10px;
+      background-color: #fff;
+    }
+    .result-item {
+      padding: 5px;
+      border-bottom: 1px solid #eee;
+      font-family: monospace;
+      font-size: 12px;
+      word-break: break-all;
+    }
+    .result-item:last-child {
+      border-bottom: none;
+    }
+    .status {
+      margin-top: 10px;
+      padding: 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      display: none;
+    }
+    .success {
+      background-color: #dff0d8;
+      color: #3c763d;
+      border: 1px solid #d6e9c6;
+    }
+    .error {
+      background-color: #f2dede;
+      color: #a94442;
+      border: 1px solid #ebccd1;
+    }
+    .loading {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 2px solid #f3f3f3;
+      border-top: 2px solid #3498db;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .progress-container {
+      margin-top: 10px;
+      display: none;
+    }
+    .progress-bar {
+      height: 20px;
+      background-color: #f0f0f0;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 5px;
+    }
+    .progress-fill {
+      height: 100%;
+      background-color: #4CAF50;
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+    .progress-text {
+      font-size: 12px;
+      text-align: center;
+      color: #666;
+    }
+    .progress-url {
+      font-family: monospace;
+      font-size: 11px;
+      margin: 5px 0;
+      word-break: break-all;
+      color: #666;
+    }
+    .progress-status {
+      font-weight: bold;
+      margin-top: 3px;
+    }
+    .progress-status.success {
+      color: #4CAF50;
+    }
+    .progress-status.error {
+      color: #F44336;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>横戈安全团队，Webpack映射提取器</h1>
+    <p class="description">提取Webpack生成的JS映射文件</p>
+  </div>
+  
+  <div class="button-container">
+    <button id="extractBtn">提取映射</button>
+    <button id="copyBtn" disabled>一键复制</button>
+    <button id="loadBtn" disabled>一键加载</button>
+  </div>
+  
+  <div class="progress-container" id="progressContainer">
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <div class="progress-text" id="progressText">0% (0/0)</div>
+    <div class="progress-url" id="progressUrl"></div>
+    <div class="progress-status" id="progressStatus"></div>
+  </div>
+  
+  <div class="results" id="resultsContainer">
+    <div class="result-item">点击"提取映射"按钮开始...</div>
+  </div>
+  
+  <div id="statusMessage" class="status"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
